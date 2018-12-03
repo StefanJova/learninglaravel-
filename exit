@@ -1,0 +1,29 @@
+[33mcommit 0f8e5969e3c752f95d19ef8d7e5322300f74796b[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Oct 9 09:07:55 2018 +0000
+
+    edit users works now except security
+
+[33mcommit e7eb02a826863ba803a6caeebcd111540cc175b8[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Oct 2 10:48:11 2018 +0000
+
+    uploading photos added and working
+
+[33mcommit 526069b66a9dd605129833e4f1c0fa8a4f82f996[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Oct 2 08:57:50 2018 +0000
+
+    users page working without photos
+
+[33mcommit dfe91a0f6e16cd1a4a336d94f51c7666d7db14ea[m
+Author: vagrant <vagrant@homestead>
+Date:   Mon Sep 17 16:01:24 2018 +0000
+
+    admin masterpage setup
+
+[33mcommit a22d6915bdb02338f90957f5c75b53edde2fc216[m
+Author: vagrant <vagrant@homestead>
+Date:   Tue Jul 17 13:10:59 2018 +0000
+
+    my first commit

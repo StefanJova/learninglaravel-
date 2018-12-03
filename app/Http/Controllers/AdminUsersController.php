@@ -7,9 +7,15 @@ use App\Photo;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +25,6 @@ class AdminUsersController extends Controller
     {
         $users=User::all();
         return view('admin.users.index', compact('users'));
-
     }
 
     /**
@@ -57,6 +62,7 @@ class AdminUsersController extends Controller
         }
 
         User::create($input);
+        Session::flash('message', 'The user is created');
         return redirect('admin/users');
     }
 
@@ -108,6 +114,7 @@ class AdminUsersController extends Controller
             $input['photo_id']=$photo->id;
         }
         $user->update($input);
+        Session::flash('message', 'The user is edited');
         return redirect('admin/users');
     }
 
@@ -119,6 +126,16 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user= User::findOrFail($id);
+        if($user->photo_id!=NULL){
+            unlink(public_path().$user->photo->file);
+            $photo=Photo::findOrFail($user->photo_id);
+            $photo->delete();
+        }
+
+        $user->delete();
+        Session::flash('message', 'The user is deleted');
+        return redirect('admin/users');
+
     }
 }
